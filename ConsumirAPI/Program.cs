@@ -13,23 +13,37 @@ using (HttpClient client = new HttpClient())
 
         var musicas = JsonSerializer.Deserialize<List<Musica>>(reposta);
 
-        LinqFilter.FiltrarMusicasPorAno(musicas, "2019");
+        var musicasFavoritasDoItalo = new MusicasPreferidas("Italo");
+        musicasFavoritasDoItalo.AddMusicaPreferida(musicas[980]);
+        musicasFavoritasDoItalo.AddMusicaPreferida(musicas[513]);
+        musicasFavoritasDoItalo.AddMusicaPreferida(musicas[1024]);
+        musicasFavoritasDoItalo.AddMusicaPreferida(musicas[999]);
+        musicasFavoritasDoItalo.AddMusicaPreferida(musicas[37]);
 
-        //LinqFilter.FiltrarGenerosMusicais(musicas);
+        musicasFavoritasDoItalo.ExibirMusicasPreferidas();
 
-        //LinqOrder.ExibirListaDeArtistasOrdenados(musicas);
-
-        //LinqFilter.FiltrarArtistasPorGeneroMusical(musicas,"pop");
-
-        //LinqFilter.FiltrarMusicasDeUmArtista(musicas, "Rihanna");
+        musicasFavoritasDoItalo.GerarArquivoJson();
     }
     catch (Exception ex)
     {
         Console.WriteLine("O programa não rodou pois: "+ ex.Message);
-        //Console.WriteLine(reposta);
-        /*foreach(var musica in musicas)
-        {
-            musica.exibirDetalhes();
-        }*/
+       
     }
+
+
+    //LinqFilter.FiltrarGenerosMusicais(musicas);
+
+    //LinqOrder.ExibirListaDeArtistasOrdenados(musicas);
+
+    //LinqFilter.FiltrarArtistasPorGeneroMusical(musicas,"pop");
+
+    //LinqFilter.FiltrarMusicasDeUmArtista(musicas, "Rihanna");
+
+    //LinqFilter.FiltrarMusicasPorAno(musicas, "2019");
+
+    //Console.WriteLine(reposta);
+    /*foreach(var musica in musicas)
+    {
+        musica.exibirDetalhes();
+    }*/
 }
