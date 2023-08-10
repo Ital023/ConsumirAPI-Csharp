@@ -12,7 +12,7 @@ class Musica
     public int Duracao { get; set; }
 
     [JsonPropertyName("genre")]
-    public int Genero { get; set; }
+    public string Genero { get; set; }
 
 
     public void exibirDetalhes()
@@ -20,6 +20,7 @@ class Musica
         Console.WriteLine("Musica: " + Nome);
         Console.WriteLine("Artista: " + Artista);
         Console.WriteLine("Duração: " + Duracao / 1000);
+        Console.WriteLine("Genero: " + Genero);
     }
 
     public void exibirGenerosMusicais(List<Musica> musicas)
