@@ -13,8 +13,15 @@ using (HttpClient client = new HttpClient())
 
         var musicas = JsonSerializer.Deserialize<List<Musica>>(reposta);
 
-        LinqFilter.FiltrarGenerosMusicais(musicas);
+        LinqFilter.FiltrarMusicasPorAno(musicas, "2019");
 
+        //LinqFilter.FiltrarGenerosMusicais(musicas);
+
+        //LinqOrder.ExibirListaDeArtistasOrdenados(musicas);
+
+        //LinqFilter.FiltrarArtistasPorGeneroMusical(musicas,"pop");
+
+        //LinqFilter.FiltrarMusicasDeUmArtista(musicas, "Rihanna");
     }
     catch (Exception ex)
     {

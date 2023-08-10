@@ -14,6 +14,10 @@ class Musica
     [JsonPropertyName("genre")]
     public string Genero { get; set; }
 
+    [JsonPropertyName("year")]
+    public string ano { get; set; }
+
+
 
     public void exibirDetalhes()
     {
@@ -21,6 +25,8 @@ class Musica
         Console.WriteLine("Artista: " + Artista);
         Console.WriteLine("Duração: " + Duracao / 1000);
         Console.WriteLine("Genero: " + Genero);
+        Console.WriteLine("Ano: " + ano);
+
     }
 
     public void exibirGenerosMusicais(List<Musica> musicas)
